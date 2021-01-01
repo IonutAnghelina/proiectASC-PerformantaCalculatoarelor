@@ -2,8 +2,13 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 fout=open("data.out","w")
+maxPerf=open("maxPerf.txt","w")
 
 baseLink="https://www.top500.org/lists/top500/"
+
+def parseNumber(x):
+    y="".join(x.split(","))
+    return y
 
 
 
@@ -34,8 +39,15 @@ for year in range(1994,2021):
 
     for i,el in enumerate(l):
         if len(el)>0 and el[0].isalpha():
-            print("In {}, the best computer was: {} which had {} cores and achieved a maximum performance of Rmax={}".format(year,el,l[i+6],l[i+7]))
+            l[i+7]=parseNumber(l[i+7])
+            if year<=2004:
+                performanceIndex=float(l[i+7])/1000
+            else:
+                performanceIndex=float(l[i+7])
+
+            print("In {}, the best computer was: {} which had {} cores and achieved a maximum performance of Rmax={} TFlop/s".format(year,el,l[i+6],performanceIndex))
             bestPos=i
+            print("{}: {}".format(year,performanceIndex),file=maxPerf)
             break
 
   #  print(l[bestPos+7]) #The number of cores
