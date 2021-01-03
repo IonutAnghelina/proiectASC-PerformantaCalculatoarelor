@@ -32,3 +32,7 @@ for i in range(1,len(performance)):
 
 plt.plot(years[1:],growth)
 plt.show()
+
+
+print("Progresul mediu inregistrat este {}%".format(sum(growth)/len(growth)))
+
