@@ -21,6 +21,8 @@ years=list(range(1994,2021))
 
 
 plt.plot(years,performance)
+plt.xlabel("Year")
+plt.ylabel("Performance(TFlop/s)")
 plt.show()
 
 
@@ -31,6 +33,8 @@ for i in range(1,len(performance)):
     growth.append(100*progress)
 
 plt.plot(years[1:],growth)
+plt.xlabel("Year")
+plt.ylabel("Progress percentage")
 plt.show()
 
 
