@@ -27,5 +27,8 @@ for i in range(1,len(performance)):
     progress=(performance[i]-performance[i-1])/performance[i-1]
     growth.append(100*progress)
 
+
 plt.plot(years[1:],growth)
 plt.show()
+
+print("Progresul mediu inregistrat este {}%".format(sum(growth)/len(growth)))
