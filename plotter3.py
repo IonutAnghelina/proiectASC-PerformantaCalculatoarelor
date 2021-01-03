@@ -19,6 +19,10 @@ for i in range(0,length-1,3):
     #print((x1+x2+x3)/3)
     performance.append((x1+x2+x3)/3)
 plt.plot(years,performance)
+
+plt.xlabel("Year")
+plt.ylabel("Performance(TFlop/s)")
+
 plt.show()
 
 growth=[]
@@ -29,6 +33,13 @@ for i in range(1,len(performance)):
 
 
 plt.plot(years[1:],growth)
+
+plt.xlabel("Year")
+plt.ylabel("Progress percentage")
+
 plt.show()
 
 print("Progresul mediu inregistrat este {}%".format(sum(growth)/len(growth)))
+
+
+
